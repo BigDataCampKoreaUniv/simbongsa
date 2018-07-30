@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+	<title>Recommend Volunteering</title>
+
+	<!-- Your META here -->
+	<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0" name="viewport">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="static/j-folder/css/demo.css">
+	<link rel="stylesheet" href="static/j-folder/css/font-awesome.min.css">
+	<link rel="stylesheet" href="static/j-folder/css/j-forms.css">
+
+	<!-- Scripts -->
+	<script src="static/j-folder/js/jquery.1.11.1.min.js"></script>
+	<script src="static/j-folder/js/jquery.ui.min.js"></script>
+	<script src="static/j-folder/js/jquery.maskedinput.min.js"></script>
+
+	<!--[if lt IE 10]>
+			<script src="j-folder/js/jquery.placeholder.min.js"></script>
+		<![endif]-->
+{% endblock styles %}
+
+{% block content %}
+	<div class="wrapper wrapper-640">
+
+		<form action="" method="" class="j-forms" novalidate>
+
+			<div class="header">
+				<p>Recommend Volunteering</p>
+			</div>
+			<!-- end /.header-->
+
+			<div class="content">
+
+				<div class="divider gap-bottom-25"></div>
+
+				<div class="j-row">
+					<div class="span6 unit"><!-- start service -->
+						<label class="label">관심분야</label>
+						<label class="input select">
+							<select name="service">
+								<option value="none" selected disabled="">interested in</option>
+								<option value="design">Design</option>
+								<option value="development">Development</option>
+								<option value="branding">Branding</option>
+								<option value="educate">Educating</option>
+								<option value="mentoring">Mentoring</option>
+								<option value="Translating">Translating</option>
+                                <option value="etc">...</option>
+							</select>
+							<i></i>
+						</label>
+					</div><!-- end service -->
+					<div class="span6 unit"><!-- start age -->
+						<label class="label">나이</label>
+						<label class="input select">
+							<select name="age">
+								<option value="none" selected disabled="">select age</option>
+                                <option value="14-16">14 ~ 16</option>
+                                <option value="17-19">17 ~ 19</option>
+								<option value="20-24">20 ~ 24</option>
+								<option value="25-29">25 ~ 29</option>
+								<option value="30-40">30 ~ 40</option>
+								<option value="41above">41 ~</option>
+                                <option value="etc">...</option>
+							</select>
+							<i></i>
+						</label>
+					</div><!-- end age -->
+				</div>
+
+
+				<div class="j-row">
+					<div class="span6 unit"><!-- start major -->
+						<label class="label">전공</label>
+						<label class="input select">
+							<select name="major">
+								<option value="none" selected disabled="">major in</option>
+								<option value="design">Design</option>
+								<option value="computerScience">Computer Science</option>
+								<option value="mechanicalEngine">Mechanical Engineering</option>
+								<option value="educating">Educating</option>
+								<option value="acting">Acting</option>
+								<option value="advertising">Advertising</option>
+								<option value="musics">Musics</option>
+                                <option value="etc">...</option>
+							</select>
+							<i></i>
+						</label>
+					</div><!-- end major -->
+					<div class="span6 unit"><!-- region -->
+						<label class="label">지역</label>
+						<label class="input select">
+							<select name="region">
+								<option value="none" selected disabled="">select region</option>
+                                <option value="종로구">종로구</option>
+                                <option value="중구">중구</option>
+								<option value="용산구">용산구</option>
+								<option value="성동구">성동구</option>
+								<option value="광진구">광진구</option>
+								<option value="동대문구">동대문구</option>
+								<option value="중랑구">중랑구</option>
+								<option value="성북구">성북구</option>
+								<option value="etc">...</option>
+							</select>
+							<i></i>
+						</label>
+					</div><!-- end region -->
+				</div>
+
+
+
+				<div class="j-row">
+					<div class="span6 unit"><!-- start gender -->
+						<label class="label">성별</label>
+						<label class="input select">
+							<select name="gender">
+								<option value="none" selected disabled="">gender</option>
+								<option value="male">Male</option>
+								<option value="female">Female</option>
+							</select>
+							<i></i>
+						</label>
+					</div><!-- end gender -->
+                    <div class="span6 unit"><!-- subject -->
+						<label class="label">대상</label>
+						<label class="input select">
+							<select name="subject">
+								<option value="none" selected disabled="">select subject</option>
+                                <option value="유아">유아</option>
+                                <option value="중고등">중,고등학생</option>
+								<option value="특수아동">특수아동</option>
+								<option value="다문화가정">다문화가정</option>
+								<option value="독거노인">독거노인</option>
+								<option value="장애인">장애인</option>
+								<option value="etc">...</option>
+							</select>
+							<i></i>
+						</label>
+					</div><!-- end region -->
+				</div>
+
+
+
+
+				<!-- start date -->
+				<div class="j-row">
+					<div class="span6 unit">
+						<label class="label">Date from</label>
+						<div class="input">
+							<label class="icon-right" for="date_from">
+								<i class="fa fa-calendar"></i>
+							</label>
+							<input type="text" id="date_from" name="date_from">
+						</div>
+					</div>
+					<div class="span6 unit">
+						<label class="label">Date to</label>
+						<div class="input">
+							<label class="icon-right" for="date_to">
+								<i class="fa fa-calendar"></i>
+							</label>
+							<input type="text" id="date_to" name="date_to">
+						</div>
+					</div>
+				</div>
+				<!-- end date -->
+
+				<div class="divider gap-bottom-25"></div>
+
+			</div>
+			<!-- end /.content -->
+
+			<div class="footer">
+				<button type="submit" class="primary-btn">Recommend</button>
+				<button type="reset" class="secondary-btn">Reset</button>
+			</div>
+			<!-- end /.footer -->
+
+		</form>
+	</div>
+	<script>
+		$(document).ready(function(){
+
+			// Phone masking
+			$('#phone').mask('(999) 999-9999', {placeholder:'x'});
+
+			// Popup time interval
+			$(function() {
+				$( '#date_from' ).datepicker({
+					dateFormat: 'mm/dd/yy',
+					prevText: '<i class="fa fa-caret-left"></i>',
+					nextText: '<i class="fa fa-caret-right"></i>',
+					onClose: function( selectedDate ) {
+						$( '#date_to' ).datepicker( 'option', 'minDate', selectedDate );
+					}
+				});
+				$( '#date_to' ).datepicker({
+					dateFormat: 'mm/dd/yy',
+					prevText: '<i class="fa fa-caret-left"></i>',
+					nextText: '<i class="fa fa-caret-right"></i>',
+					onClose: function( selectedDate ) {
+						$( '#date_from' ).datepicker( 'option', 'maxDate', selectedDate );
+					}
+				});
+			});
+
+		});
+	</script>
+{% endblock content %}
