@@ -21,7 +21,7 @@ class User(db.Model):
 
 @app.route('/')
 def main_screens():
-    return render_template('main_screen.html')
+    return render_template('rating.html')
 
 
 @app.route('/login/')
