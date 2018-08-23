@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+
+
+{%- block styles %}
+{%- endblock styles %}
+
+{% block scripts %}
+   {{ moment.include_jquery() }}
+   {{ moment.include_moment() }}
+   {{ moment.lang("ko") }}
+    <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+
+    <script>
+
+
+    function openZipSearch() {
+	new daum.Postcode({
+		oncomplete: function(data) {
+			$('[name=zip]').val(data.zonecode); // 우편번호 (5자리)
+			$('[name=addr1]').val(data.address);
+			$('[name=addr2]').val(data.buildingName);
+		}
+	}).open();
+    }
+
+    </script>
+{% endblock scripts %}
+
+
+{% block content -%}
+
+<div class="content">
+                    
+    <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+        <div class="page-title">
+            <h1>Register</h1>
+        </div><!-- /.page-title -->
+
+        <form method="post" action="{{ url_for('register_users') }}" name="register_user_form">
+        {{ register_user_form.csrf_token }}
+              <div class="form-group">
+                <label for="login-form-email">E-mail</label>
+                <input type="email" id = "email" class="form-control" name="email">
+                {% if register_user_form.email.errors %}
+                    {% for error in register_user_form.email.errors %}
+                        <span class="error-view">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+{#              value="{{ request.form.email }}"required#}
+            </div><!-- /.form-group -->
+
+{#            <div class="form-group">#}
+{#                <label for="login-form-first-name">First name</label>#}
+{#                <input type="text" class="form-control" name="first_name" id="login-form-first-name">#}
+{#            </div><!-- /.form-group -->#}
+{##}
+{#            <div class="form-group">#}
+{#                <label for="login-form-last-name">Last name</label>#}
+{#                <input type="text" class="form-control" name="last_name" id="login-form-last-name">#}
+{#            </div><!-- /.form-group -->#}
+
+            <div class="form-group">
+                <label for="login-form-password">Password</label>
+                <input type="password" id="password" class="form-control" name="password" id="login-form-password" >
+                {% if register_user_form.password.errors %}
+                    {% for error in register_user_form.password.errors %}
+                        <span class="error-view">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+{#            value="{{ request.form.password }}"required#}
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <label for="login-form-password-retype">Retype password</label>
+                <input type="password" class="form-control" name="password_confirm" id="login-form-password-retype">
+                 {% if register_user_form.password_confirm.errors %}
+                    {% for error in register_user_form.password_confirm.errors %}
+                        <span class="error-view">{{ error }}</span>
+                    {% endfor %}
+                 {% endif %}
+            </div><!-- /.form-group -->
+
+            <div class="sex">
+                <h5>성별</h5>
+                <input type="radio" name="mf" id="male" value="0">
+                <label for="male">남자</label>
+
+                <input type="radio" name="mf" id="female" value="1" >
+                <label for="female">여자</label>
+
+            </div><!-- /.form-group -->
+
+            <div>
+                <h5>선호 봉사활동</h5>
+
+                <input type="checkbox" id="volun1" name="volun1">
+                <label for="volun1">농어촌</label>
+
+                <input type="checkbox" id="volun2" name="volun2">
+                <label for="volun2">주거환경</label>
+
+                <input type="checkbox" id="volun3" name="volun3" value="1">
+                <label for="volun3">상담</label>
+
+                <input type="checkbox" id="volun4" name="volun4" value="1">
+                <label for="volun4">행정지원</label>
+
+                <input type="checkbox" id="volun5" name="volun5" value="1">
+                <label for="volun5">동아리</label>
+
+                <input type="checkbox" id="volun6" name="volun6" value="1">
+                <label for="volun6">교육</label>
+
+                <input type="checkbox" id="volun7" name="volun7" value="1">
+                <label for="volun7">보건의료</label>
+
+                <input type="checkbox" id="volun8" name="volun8" value="1">
+                <label for="volun8">문화</label>
+
+                <input type="checkbox" id="volun9" name="volun9" value="1">
+                <label for="volun9">체육</label>
+
+                <input type="checkbox" id="volun10" name="volun10" value="1">
+                <label for="volun10">환경</label>
+
+                <input type="checkbox" id="volun11" name="volun11" value="1">
+                <label for="volun11">인권</label>
+
+                <input type="checkbox" id="volun12" name="volun12" value="1">
+                <label for="volun12">국제협력</label>
+
+                <input type="checkbox" id="volun13" name="volun13" value="1">
+                <label for="volun13">농어촌</label>
+
+                <input type="checkbox" id="volun14" name="volun14" value="1">
+                <label for="volun14">기획</label>
+
+                <input type="checkbox" id="volun15" name="volun15" value="1">
+                <label for="volun15">역사</label>
+
+                <input type="checkbox" id="volun16" name="volun16" value="1">
+                <label for="volun16">현장</label>
+
+                <input type="checkbox" id="volun17" name="volun17" value="1">
+                <label for="volun17">언어</label>
+
+                <input type="checkbox" id="volun18" name="volun18" value="1">
+                <label for="volun18">홍보</label>
+
+                <input type="checkbox" id="volun19" name="volun19" value="1">
+                <label for="volun19">사회공헌</label>
+
+                <input type="checkbox" id="volun20" name="volun20" value="1">
+                <label for="volun20">여행</label>
+
+            </div>
+
+            <div class="form-group">
+                <h5>주소 검색</h5>
+            우편번호 : <input type="text" name="zip" style="width:80px; height:30px;" />
+            <button type="button" style="width:60px; height:32px;" onclick="openZipSearch()">검색</button><br>
+            주소 : <input type="text" name="addr1" style="width:300px; height:30px;" readonly /><br>
+            상세 : <input type="text" name="addr2" style="width:300px; height:30px;" />
+
+            </div><!-- /.form-group -->
+
+
+            <div class="form-group">
+                <h5>선호 지역 설정</h5>
+                <span>
+                    <select>
+                        <option>거주지역</option>
+                        <option>서울특별시</option>
+                        <option>부산광역시</option>
+                    </select>
+                    <select>
+                        <option>자치시/군/구</option>
+                        <option>서울특별시</option>
+                        <option>부산광역시</option>
+                    </select>
+                </span>
+
+
+            </div><!-- /.form-group -->
+
+            <div>
+            <select id="select1" onchange="itemChange()">
+                <option>키보드</option>
+                <option>마우스</option>
+                <option></option>
+            </select>
+
+            <select id="select2">
+            </select>
+
+
+            </div>
+            <script>
+                    function itemChange(){
+
+                        var keyboard = ["갈축","청축","적축"];
+                        var mouse = ["광마우스","유선마우스","비싼마우스","미키마우스"];
+                        var monitor = ["17인치","22인치","24인치","26인치"];
+
+                        var selectItem = $("#select1").val();
+
+                        var changeItem;
+
+                        if(selectItem == "키보드"){
+                          changeItem = keyboard;
+                        }
+                        else if(selectItem == "마우스"){
+                          changeItem = mouse;
+                        }
+                        else if(selectItem == "모니터"){
+                          changeItem =  monitor;
+                        }
+
+                        $('#select2').empty();
+
+                        for(var count = 0; count < changeItem.size(); count++){
+                                        var option = $("<option>"+changeItem[count]+"</option>");
+                                        $('#select2').append(option);
+                                    }
+
+                        }
+
+                </script>
+
+            <button type="submit" class="btn btn-primary pull-right" >Register</button>
+        </form>
+    </div><!-- /.col-sm-4 -->
+    </div><!-- /.row -->
+</div><!-- /.contents -->
+
+{% endblock content -%}
