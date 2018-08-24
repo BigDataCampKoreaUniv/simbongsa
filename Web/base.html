@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html{% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+  <head>
+    {%- block head %}
+    <title>
+        봉사왕심봉사 - 내게 맞는 봉사 자동 추천 시스템
+        {% block title %}{{title|default}}{% endblock title %}</title>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+
+    <link href="http://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
+    <link href="/static/libraries/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="/static/libraries/owl.carousel/assets/owl.carousel.css" rel="stylesheet" type="text/css" >
+    <link href="/static/libraries/colorbox/example1/colorbox.css" rel="stylesheet" type="text/css" >
+    <link href="/static/libraries/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/libraries/bootstrap-fileinput/fileinput.min.css" rel="stylesheet" type="text/css">
+
+    <link href={{ url_for('static', filename = "css/superlist.css") }} rel="stylesheet" >
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.png">
+
+
+
+    {%- block styles %}
+    <!-- Bootstrap -->
+
+
+    {%- endblock styles %}
+
+    {%- endblock head %}
+
+  </head>
+  <body{% block body_attribs %}{% endblock body_attribs %}>
+
+
+
+    {% block body -%}
+    <div class="page-wrapper">
+    {% include 'header.html' %}
+
+    {% block navbar %}
+    {%- endblock navbar %}
+
+    <div class="main">
+        <div class="main-inner">
+{#            <div class="content">#}
+        {% block content -%}
+            {% if current_user.is_authenticated %}
+                {% include 'googlemap.html' %}
+            {% else %}
+
+            {% endif %}
+
+
+        {%- endblock content %}
+{#            </div><!-- /.content -->#}
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+
+    {% include 'footer.html' %}
+    </div><!-- /.page-wrapper -->
+
+
+
+    <script src="/static/js/jquery.js" type="text/javascript"></script>
+    <script src="/static/js/map.js" type="text/javascript"></script>
+
+    <script src="/static/libraries/bootstrap-sass/javascripts/bootstrap/collapse.js" type="text/javascript"></script>
+    <script src="/static/libraries/bootstrap-sass/javascripts/bootstrap/carousel.js" type="text/javascript"></script>
+    <script src="/static/libraries/bootstrap-sass/javascripts/bootstrap/transition.js" type="text/javascript"></script>
+    <script src="/static/libraries/bootstrap-sass/javascripts/bootstrap/dropdown.js" type="text/javascript"></script>
+    <script src="/static/libraries/bootstrap-sass/javascripts/bootstrap/tooltip.js" type="text/javascript"></script>
+    <script src="/static/libraries/bootstrap-sass/javascripts/bootstrap/tab.js" type="text/javascript"></script>
+    <script src="/static/libraries/bootstrap-sass/javascripts/bootstrap/alert.js" type="text/javascript"></script>
+
+    <script src="/static/libraries/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
+
+    <script src="/static/libraries/flot/jquery.flot.min.js" type="text/javascript"></script>
+    <script src="/static/libraries/flot/jquery.flot.spline.js" type="text/javascript"></script>
+
+    <script src="/static/libraries/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing" type="text/javascript"></script>
+
+    <script type="text/javascript" src="/static/libraries/jquery-google-map/infobox.js"></script>
+    <script type="text/javascript" src="/static/libraries/jquery-google-map/markerclusterer.js"></script>
+    <script type="text/javascript" src="/static/libraries/jquery-google-map/jquery-google-map.js"></script>
+
+    <script type="text/javascript" src="/static/libraries/owl.carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="/static/libraries/bootstrap-fileinput/fileinput.min.js"></script>
+
+    <script src="/static/js/superlist.js" type="text/javascript"></script>
+
+    {% block scripts %}
+    {%- endblock scripts %}
+    {%- endblock body %}
+  </body>
+{%- endblock html %}
+</html>
