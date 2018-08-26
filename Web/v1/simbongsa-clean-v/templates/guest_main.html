@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+    @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+    .img_guest{
+        height:700px;
+        width: 1000px;
+        background: url(/static/img/mappp2_dark_size.png) no-repeat;
+        {#background: url(/static/img/transparent_google_map.JPG) no-repeat;#}
+        {#background-color: rgba(255,255,255,0.5);#}
+        {#margin-top: -80px;#}
+        align: center;
+        {#font-weight: 900;#}
+
+    }
+    .alert_text{
+        {##background-color: #00d2b8;#}
+        padding-top: 123px;
+        padding-bottom: 123px;
+
+        {#background-color: rgba(255, 255, 255, 0.4);#}
+        {#background-size: 40px;#}
+        {#opacity: 0.4;#}
+    }
+    .img_guests {
+        position: relative;
+        width:100%;
+    }
+    .image {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        backface-visibility: hidden;
+    }
+    .middle {
+        opacity: 0;
+    }
+    .text p {
+        opacity: 0;
+
+        {#padding: 60px;#}
+        font-family: 'Jeju Gothic', sans-serif;;
+        font-size: 40px;
+
+        {#font-weight: bold;#}
+        text-align: center;
+        line-height: 200%;
+        color: white;
+
+
+         transition: .5s ease;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+    }
+    .img_guests:hover .text p {
+        opacity: 1;
+    }
+    .img_guests:hover .middle {
+        opacity: 1;
+    }
+
+    a.button {
+    color: rgba(30, 22, 54, 0.6);
+    box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+a.button:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
+}
+
+    </style>
+
+{#    <img id="guest_img" src="/static/img/transparent_google_map.JPG">#}
+    <div class="img_guests">
+{#        <div class="alert_text" align="center">#}
+        <img class="image" src="/static/img/mappp2_dark_size.png" style="width: 100%">
+        <div class="text">
+            <p>회원이 되어<br/>
+            나만의 활동을 추천받으세요.</p>
+        </div>
+        <div class="middle">
+            <a href="#" class="button"></a>
+        </div>
+{#        </div>#}
+    </div>
+
+{% endblock content %}

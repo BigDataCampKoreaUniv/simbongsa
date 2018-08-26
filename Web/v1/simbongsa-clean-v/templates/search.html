@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>대학교 검색</title>
+
+
+{% block scripts %}
+   {{ moment.include_jquery() }}
+   {{ moment.include_moment() }}
+   {{ moment.lang("ko") }}
+
+    <script type="text/javascript">
+
+
+    function populate(s1, s2){
+        var s1 = document.getElementById(s1);
+        var s2 = document.getElementById(s2);
+        s2.innerHTML = "";
+        {% for key, value in univDict.items() %}
+            if(s1.value == "{{ key }}"){
+
+                testArray = {"{{ key }}": "{{ value }}"}
+                {#window.alert("{{ key }}")#}
+                {#window.alert("[{{ value }}]")#}
+                {#var optionArray = "{{ value }}";#}
+                {#var a = optionArray;#}
+                {#a = a.replace(/'/g, '"');#}
+                {#a = JSON.parse(a);#}
+                {#window.alert(a[0])#}
+            }
+        {% endfor %}
+        {#window.alert(Object.values(testArray))#}
+        for(var key in testArray) {
+            testArray[key] = testArray[key].replace(/\[/gi, '');
+            testArray[key] = testArray[key].replace(/\]/gi, '');
+            testArray[key] = testArray[key].replace(/&#39;/gi, '');
+            var instance = testArray[key].split(",");
+            for (i = 0; i < instance.length; i++) {
+                {#window.alert(instance[i])#}
+                var newOption = document.createElement("option");
+                newOption.value = instance[i]
+                newOption.innerHTML = instance[i];
+                s2.options.add(newOption);
+            }
+        }
+    }
+
+
+    </script>
+
+
+{% endblock scripts %}
+
+</head>
+<body>
+    <form method="POST" action = "search" name="search_form">
+        <input type="text" placeholder=" 대학교를 입력하세요." name="search" id="search_text" style="width:160px; height:25px;" >
+        <input type="submit" name="btn" value="대학교검색"style="width:90px; height:30px;">
+        <br>
+        <br>
+        <div>
+
+
+        <select id="slct1" name="slct1" onchange="populate(this.id, 'slct2')" style="width:200px; height:30px;">
+            <option value="">대학교를 선택해주세요.</option>
+            {% for key, value in univDict.items() %}
+                <option value="{{ key }}">{{ key }} </option>
+             {% endfor %}
+
+        </select>
+        <select id="slct2" name="slct2" style="width:200px; height:30px;">
+            <option value="">전공</option>
+        </select>
+
+        <input type="submit" name="btn" value="제출" style="height:30px;">
+
+        </div>
+      <br>
+
+        <br>
+        <button type="button" onclick="window.close()" style="width:100px; height:100px;">나가기</button>
+        <br>
+        <br>
+
+
+    </form>
+{#onclick="window.close()"#}
+
+</body>
+</html>
