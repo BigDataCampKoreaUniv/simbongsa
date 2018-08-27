@@ -1,0 +1,118 @@
+
+
+{% block container %}
+    <style>
+    @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+    .img_guests {
+        position: relative;
+        width:100%;
+    }
+    .image {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        backface-visibility: hidden;
+    }
+
+    .text {
+         opacity: 0;
+         transition: .5s ease;
+          position: absolute;
+        margin-top:-10px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+    }
+
+    .inner_img {
+        margin:600px;
+        margin-bottom: -620px;
+    }
+
+    .text p {
+        font-family: 'Nanum Barun Gothic', sans-serif;
+
+        {#font-family: 'Jeju Gothic', sans-serif;;#}
+        font-size: 50px;
+
+        text-align: center;
+        line-height: 200%;
+        color: white;
+
+
+    }
+    .inner_img:hover .text {
+        opacity: 1;
+        transition: width .5s ease .5s;
+        transition-delay: .5s;
+
+    }
+    .inner_img:hover .wrap {
+        opacity: 1;
+        transition: width .5s ease .5s;
+
+    }
+
+    .wrap {
+        opacity: 0;
+        position: absolute;
+        margin-top: -10px;
+        margin-left: 225px;
+        padding-left: 0px;
+
+    {#top: 50%;#}
+    {#left: 50%;#}
+    {#margin-top: -86px;#}
+    {#margin-left: -89px;#}
+        text-align: center;
+}
+
+    a.button {
+    -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+    display: block;
+    margin: 20px auto;
+    max-width: 180px;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 20px 30px;
+}
+
+
+    a.button {
+        color: rgba(139, 190, 172, 0.6);
+        box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+        font-weight:bold;
+    }
+
+    a.button:hover {
+        color: rgba(255, 255, 255, 0.85);
+        box-shadow: rgba(82, 190, 176, 0.7) 0 80px 0px 2px inset;
+        {#font-weight:bold;#}
+    }
+
+    </style>
+
+{#    <img id="guest_img" src="/static/img/transparent_google_map.JPG">#}
+    <div class="img_guests">
+{#        <div class="alert_text" align="center">#}
+        <img class="image" src="/static/img/googlemap_final.JPG" style="width: 100%">
+        <div class="inner_img">
+            <div class="text">
+                <p>회원이 되어<br/>
+                나만의 활동을 추천받으세요.</p>
+                <div class="wrap">
+                    <a href="/register/" class="button">회원가입</a>
+                </div>
+            </div>
+        </div>
+{#        </div>#}
+    </div>
+
+{% endblock container %}

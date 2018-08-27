@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/heart_7.css">
+
+<script>
+
+$(document).ready(function() {
+    var datas = {{ check_flag|tojson }};
+        if ( datas == 'true' ) {
+            $('#i_icon_like').removeClass('glyphicon-heart-empty').addClass('glyphicon-heart');
+            $('#id-of-input').prop('checked',true).attr('checked','checked');
+        } else {
+            $('#id-of-input').prop('checked',false).removeAttr('checked');
+        }
+});
+
+function set_checked(contents_id) {
+    var checkbox = document.getElementById('id-of-input');
+    if (checkbox.checked == true) {
+        $('#i_icon_like').removeClass('glyphicon-heart-empty').addClass('glyphicon-heart');
+
+        $.ajax({
+            url: '/likes_update',
+            type: "POST",
+
+            data: {like_checked: true, content_id: contents_id},
+            success: function (response) {
+                var obj = JSON.parse(response);
+
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+    } else {
+        $('#i_icon_like').removeClass('glyphicon-heart').addClass('glyphicon-heart-empty');
+
+        $.ajax({
+            url: '/likes_update',
+            type: "POST",
+
+            data: {like_checked: false, content_id: contents_id},
+            success: function (response) {
+                var obj = JSON.parse(response);
+
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+}
+
+// tag눌렀을 때 분야별 contents 보여줄 때 사용할 함수
+function getTagContent(n) {
+     // 0<=n<33
+    console.log(n)
+}
+
+</script>
+
+
+{# 좋아요 버튼 부분 #}
+<div class="right-box" style="float:right;">
+<form action="" id="myforms">
+<label for="id-of-input" class="custom-checkbox">
+   <input type="checkbox" id="id-of-input" name="checkbox_like" onclick="set_checked({{ contents[0] }})"/>
+   <i class="glyphicon glyphicon-heart-empty" id="i_icon_like"></i>
+</label>
+</form>
+
+</div>
+<div class="page-title">
+    <h1> {{ contents[1] }}</h1>  <!-- content title name -->
+
+</div><!-- /.page-title -->
+
+<div class="posts post-detail">
+
+    <!-- 포스터가 있다면 아래 img src 허용 -->
+<!--    <img src="/static/assets/img/tmp/blog-1.jpg" alt="A Clockwork Origin"> -->
+
+
+    <div class="post-content">
+
+        <table class="table table-striped">
+        <tbody>
+        <tr>
+            <th>모집 기간</th>
+            <td>{{ contents[5] }} ~ {{ contents[6] }}</td>
+            <th>등록 기관</th>
+            <td>{{ contents[2] }}</td>
+        </tr>
+
+        <tr>
+            <th>활동 기간</th>
+            <td>{{ contents[7] }}</td>
+            <th>활동 장소</th>
+            <td>{{ contents[3] }}</td>
+        </tr>
+
+        <tr>
+            <th>봉사 분야</th>
+            <td>{{ category_name }}</td>
+            <th>봉사 대상</th>
+            <td>{{ category_receiver }}</td>
+        </tr>
+
+        </tbody>
+        </table>
+
+        <p class="post-content">{{ contents[4] }}</p>
+    </div><!-- /.post-content -->
+
+    <div class="post-meta-tags clearfix">
+        Tags:
+        <ul>
+
+        {% for n in range(tags|length) %}
+            <li class="tag"><a href="javascript:getTagContent({{ n }});">{{ tags[n] }}</a></li>
+        {% endfor %}
+
+        </ul>
+    </div><!-- /.post-meta -->
+
+
+        <!-- 주최사, 작성일, 분류, 좋아요수? 로 하면 될 듯 -->
+    <div class="post-meta clearfix">
+        <div class="post-meta-author">By {{ contents[2] }}</div><!-- /.post-meta-author -->
+        <div class="post-meta-date">{{ recruit_date }}</div><!-- /.post-meta-date -->
+        <div class="post-meta-categories"><i class="fa fa-tags"></i> {{ category_name }}</div><!-- /.post-meta-categories -->
+        <div class="post-meta-comments"><i class="fa fa-heart" aria-hidden="true"></i> <a href="blog-detail.html">좋아한 수: {{ like_counts }}</a></div><!-- /.post-meta-comments -->
+    </div><!-- /.post-meta -->
+
+</div><!-- /.post -->
+
+{% endblock content %}

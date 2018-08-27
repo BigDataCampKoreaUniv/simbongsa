@@ -1,0 +1,856 @@
+{% extends 'base.html' %}
+
+
+{%- block styles %}
+{%- endblock styles %}
+
+<meta http-equiv="refresh" content="300">
+
+{% block scripts %}
+   {{ moment.include_jquery() }}
+   {{ moment.include_moment() }}
+   {{ moment.lang("ko") }}
+    <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+
+    <script>
+    function autoRefresh_div()
+    {
+    var currentLocation = window.location;
+    $("#abcdef").load(currentLocation + ' #abcdef');
+    }
+    {# setInterval('autoRefresh_div()', 3000);#}
+    </script>
+    <script>
+
+    function openZipSearch() {
+	new daum.Postcode({
+		oncomplete: function(data) {
+			$('[name=zip]').val(data.zonecode); // 우편번호 (5자리)
+			$('[name=addr1]').val(data.address);
+			$('[name=addr2]').val(data.buildingName);
+		}
+	}).open();
+    }
+    </script>
+
+
+
+    <script>
+        function removeAllOptions(sel, removeGrp) {
+        var len, groups, par;
+        if (removeGrp) {
+            groups = sel.getElementsByTagName('optgroup');
+            len = groups.length;
+            for (var i=len; i; i--) {
+                sel.removeChild( groups[i-1] );
+            }
+        }
+        len = sel.options.length;
+        for (var i=len; i; i--) {
+            par = sel.options[i-1].parentNode;
+            par.removeChild( sel.options[i-1] );
+        }
+    }
+
+    function appendDataToSelect(sel, obj) {
+        var f = document.createDocumentFragment();
+        var labels = [], group, opts;
+        function addOptions(obj) {
+            var f = document.createDocumentFragment();
+            var o;
+            for (var i=0, len=obj.text.length; i<len; i++) {
+                o = document.createElement('option');
+                o.appendChild( document.createTextNode( obj.text[i] ) );
+
+                if ( obj.value ) {
+                    o.value = obj.value[i];
+                }
+                f.appendChild(o);
+            }
+            return f;
+        }
+        if ( obj.text ) {
+            opts = addOptions(obj);
+            f.appendChild(opts);
+        } else {
+            for ( var prop in obj ) {
+                if ( obj.hasOwnProperty(prop) ) {
+                    labels.push(prop);
+                }
+            }
+            for (var i=0, len=labels.length; i<len; i++) {
+                group = document.createElement('optgroup');
+                group.label = labels[i];
+                f.appendChild(group);
+                opts = addOptions(obj[ labels[i] ] );
+                group.appendChild(opts);
+            }
+        }
+        sel.appendChild(f);
+    }
+
+    </script> {# selectbox update #}
+
+
+
+
+    <script>
+    // object literal holding data for option elements
+    var Select_List_Data = {
+
+        'choices': { // name of associated select box
+
+            // names match option values in controlling select box
+
+            강원도: {
+                text: ["--시/군/구--","강릉시","고성군","동해시", "삼척시", "속초시","양구군","영월군",
+             "원주시","인제군","정선군","철원군","춘천시","태백시","평창군","홍천군",
+             "화천군","횡성군"],
+                value: ["강원도", "강릉시","고성군","동해시", "삼척시", "속초시","양구군","영월군",
+             "원주시","인제군","정선군","철원군","춘천시","태백시","평창군","홍천군",
+             "화천군","횡성군"]
+            },
+            경기도: {
+                text: ["--시/군/구--","가평군","고양시","과천시","광명시","광주시","구리시",
+              "군포시","김포시","남양주시","동두천시","부천시","성남시","수원시","시흥시",
+              "안산시","안성시","안양시","양주시","양평군","여주시","연천군","오산시","용인시",
+              "의왕시","의정부시","이천시","파주시","평택시","포천시","하남시","화성시"],
+                value: ["경기도","가평군","고양시","과천시","광명시","광주시","구리시",
+              "군포시","김포시","남양주시","동두천시","부천시","성남시","수원시","시흥시",
+              "안산시","안성시","안양시","양주시","양평군","여주시","연천군","오산시","용인시",
+              "의왕시","의정부시","이천시","파주시","평택시","포천시","하남시","화성시"]
+            },
+            경상남도: {
+                // example without values
+                text: ["--시/군/구--","거제시","거창군","고성군","김해시","남해군","밀양시",
+              "사천시","산청군","양산시","의령군","진주시","창녕군","창원시","통영시",
+              "하동군","함안군","함양군","합천군"],
+                value: ["경상남도","거제시","거창군","고성군","김해시","남해군","밀양시",
+              "사천시","산청군","양산시","의령군","진주시","창녕군","창원시","통영시",
+              "하동군","함안군","함양군","합천군"]
+            },
+            경상북도:{
+                text: ["--시/군/구--","경산시","경주시","고령군","구미시","군위군","김천시","문경시",
+              "봉화군","상주시","성주군","안동시","영덕군","영양군","영주시","영천시","예천군",
+              "울릉군","울진군","의성군","청도군","청송군","칠곡군","포항시"],
+                value: ["경상북도","경산시","경주시","고령군","구미시","군위군","김천시","문경시",
+              "봉화군","상주시","성주군","안동시","영덕군","영양군","영주시","영천시","예천군",
+              "울릉군","울진군","의성군","청도군","청송군","칠곡군","포항시"]
+            },
+            광주광역시:{
+                text: ["--시/군/구--","광산구","남구","동구","북구","서구"],
+                value: ["광주광역시","광산구","남구","동구","북구","서구"]
+            },
+            대구광역시:{
+                text:  ["--시/군/구--","남구","달서구","달성군","동구","북구","서구","수성구","중구"],
+                value: ["대구광역시","남구","달서구","달성군","동구","북구","서구","수성구","중구"]
+            },
+            대전광역시:{
+                text: ["--시/군/구--","대덕구","동구","서구","유성구","중구"],
+                value: ["대전광역시","대덕구","동구","서구","유성구","중구"]
+            },
+            부산광역시:{
+                text: ["--시/군/구--","강서구","금정구","기장군","남구","동구","동래구","부산진구",
+              "북구","사상구","사하구","서구","수영구","연제구","영도구","중구","해운대구"],
+                value: ["부산광역시","강서구","금정구","기장군","남구","동구","동래구","부산진구",
+              "북구","사상구","사하구","서구","수영구","연제구","영도구","중구","해운대구"]
+            },
+            서울특별시:{
+                text: ["--시/군/구--","강남구","강동구","강북구","강서구","관악구","광진구","구로구",
+              "금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구",
+              "성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구",
+              "중랑구"],
+                value: ["서울특별시","강남구","강동구","강북구","강서구","관악구","광진구","구로구",
+              "금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구",
+              "성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구",
+              "중랑구"]
+            },
+            세종특별자치시:{
+                text: ["--시/군/구--","세종특별자치시"],
+                value: ["세종특별자치시", "세종특별자치시"]
+            },
+            울산광역시:{
+                text: ["--시/군/구--","남구","동구","북구","울주군","중구"],
+                value: ["울산광역시","남구","동구","북구","울주군","중구"]
+            },
+            인천광역시:{
+                text: ["--시/군/구--","강화군","계양구","남동구","동구","미추홀구","부평구","서구",
+              "연수구","옹진군","중구"],
+                value: ["인천광역시","강화군","계양구","남동구","동구","미추홀구","부평구","서구",
+              "연수구","옹진군","중구"]
+            },
+            전라남도:{
+                text: ["--시/군/구--","강진군","고흥군","곡성군","광양시","구례군","나주시","담양군",
+              "목포시","무안군","보성군","순천시","신안군","여수시","영광군","영암군","완도군",
+              "장성군","장흥군","진도군","함평군","해남군","화순군"],
+                value: ["전라남도","강진군","고흥군","곡성군","광양시","구례군","나주시","담양군",
+              "목포시","무안군","보성군","순천시","신안군","여수시","영광군","영암군","완도군",
+              "장성군","장흥군","진도군","함평군","해남군","화순군"]
+            },
+            전라북도:{
+                text: ["--시/군/구--","고창군","군산시","김제시","남원시","무주군","부안군","순창군",
+              "완주군","익산시","임실군","장수군","전주시","정읍시","진안군"],
+                value: ["전라북도","고창군","군산시","김제시","남원시","무주군","부안군","순창군",
+              "완주군","익산시","임실군","장수군","전주시","정읍시","진안군"]
+            },
+            제주특별자치도:{
+                text: ["--시/군/구--","서귀포시","제주시"],
+                value: ["제주특별자치도","서귀포시","제주시"]
+            },
+            충청남도:{
+                text: ["--시/군/구--","계룡시","공주시","금산군","논산시","당진시","보령시","부여군",
+              "서산시","서천군","아산시","예산군","천안시","청양군","태안군","홍성군"],
+                value: ["충청남도","계룡시","공주시","금산군","논산시","당진시","보령시","부여군",
+              "서산시","서천군","아산시","예산군","천안시","청양군","태안군","홍성군"]
+            },
+            충청북도:{
+                text: ["--시/군/구--","괴산군","단양군","보은군","영동군","옥천군","음성군","제천시",
+              "증평군","진천군","청주시","충주시"],
+                value: ["충청북도","괴산군","단양군","보은군","영동군","옥천군","음성군","제천시",
+              "증평군","진천군","청주시","충주시"]
+            }
+
+        }
+    };
+    var Select_List_Data1 = {
+        'choices1':{ // name of associated select box
+
+            // names match option values in controlling select box
+
+            강원도: {
+                text: ["--시/군/구--","강릉시","고성군","동해시", "삼척시", "속초시","양구군","영월군",
+             "원주시","인제군","정선군","철원군","춘천시","태백시","평창군","홍천군",
+             "화천군","횡성군"],
+                value: ["강원도", "강릉시","고성군","동해시", "삼척시", "속초시","양구군","영월군",
+             "원주시","인제군","정선군","철원군","춘천시","태백시","평창군","홍천군",
+             "화천군","횡성군"]
+            },
+            경기도: {
+                text: ["--시/군/구--","가평군","고양시","과천시","광명시","광주시","구리시",
+              "군포시","김포시","남양주시","동두천시","부천시","성남시","수원시","시흥시",
+              "안산시","안성시","안양시","양주시","양평군","여주시","연천군","오산시","용인시",
+              "의왕시","의정부시","이천시","파주시","평택시","포천시","하남시","화성시"],
+                value: ["경기도","가평군","고양시","과천시","광명시","광주시","구리시",
+              "군포시","김포시","남양주시","동두천시","부천시","성남시","수원시","시흥시",
+              "안산시","안성시","안양시","양주시","양평군","여주시","연천군","오산시","용인시",
+              "의왕시","의정부시","이천시","파주시","평택시","포천시","하남시","화성시"]
+            },
+            경상남도: {
+                // example without values
+                text: ["--시/군/구--","거제시","거창군","고성군","김해시","남해군","밀양시",
+              "사천시","산청군","양산시","의령군","진주시","창녕군","창원시","통영시",
+              "하동군","함안군","함양군","합천군"],
+                value: ["경상남도","거제시","거창군","고성군","김해시","남해군","밀양시",
+              "사천시","산청군","양산시","의령군","진주시","창녕군","창원시","통영시",
+              "하동군","함안군","함양군","합천군"]
+            },
+            경상북도:{
+                text: ["--시/군/구--","경산시","경주시","고령군","구미시","군위군","김천시","문경시",
+              "봉화군","상주시","성주군","안동시","영덕군","영양군","영주시","영천시","예천군",
+              "울릉군","울진군","의성군","청도군","청송군","칠곡군","포항시"],
+                value: ["경상북도","경산시","경주시","고령군","구미시","군위군","김천시","문경시",
+              "봉화군","상주시","성주군","안동시","영덕군","영양군","영주시","영천시","예천군",
+              "울릉군","울진군","의성군","청도군","청송군","칠곡군","포항시"]
+            },
+            광주광역시:{
+                text: ["--시/군/구--","광산구","남구","동구","북구","서구"],
+                value: ["광주광역시","광산구","남구","동구","북구","서구"]
+            },
+            대구광역시:{
+                text:  ["--시/군/구--","남구","달서구","달성군","동구","북구","서구","수성구","중구"],
+                value: ["대구광역시","남구","달서구","달성군","동구","북구","서구","수성구","중구"]
+            },
+            대전광역시:{
+                text: ["--시/군/구--","대덕구","동구","서구","유성구","중구"],
+                value: ["대전광역시","대덕구","동구","서구","유성구","중구"]
+            },
+            부산광역시:{
+                text: ["--시/군/구--","강서구","금정구","기장군","남구","동구","동래구","부산진구",
+              "북구","사상구","사하구","서구","수영구","연제구","영도구","중구","해운대구"],
+                value: ["부산광역시","강서구","금정구","기장군","남구","동구","동래구","부산진구",
+              "북구","사상구","사하구","서구","수영구","연제구","영도구","중구","해운대구"]
+            },
+            서울특별시:{
+                text: ["--시/군/구--","강남구","강동구","강북구","강서구","관악구","광진구","구로구",
+              "금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구",
+              "성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구",
+              "중랑구"],
+                value: ["서울특별시","강남구","강동구","강북구","강서구","관악구","광진구","구로구",
+              "금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구",
+              "성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구",
+              "중랑구"]
+            },
+            세종특별자치시:{
+                text: ["--시/군/구--","세종특별자치시"],
+                value: ["세종특별자치시", "세종특별자치시"]
+            },
+            울산광역시:{
+                text: ["--시/군/구--","남구","동구","북구","울주군","중구"],
+                value: ["울산광역시","남구","동구","북구","울주군","중구"]
+            },
+            인천광역시:{
+                text: ["--시/군/구--","강화군","계양구","남동구","동구","미추홀구","부평구","서구",
+              "연수구","옹진군","중구"],
+                value: ["인천광역시","강화군","계양구","남동구","동구","미추홀구","부평구","서구",
+              "연수구","옹진군","중구"]
+            },
+            전라남도:{
+                text: ["--시/군/구--","강진군","고흥군","곡성군","광양시","구례군","나주시","담양군",
+              "목포시","무안군","보성군","순천시","신안군","여수시","영광군","영암군","완도군",
+              "장성군","장흥군","진도군","함평군","해남군","화순군"],
+                value: ["전라남도","강진군","고흥군","곡성군","광양시","구례군","나주시","담양군",
+              "목포시","무안군","보성군","순천시","신안군","여수시","영광군","영암군","완도군",
+              "장성군","장흥군","진도군","함평군","해남군","화순군"]
+            },
+            전라북도:{
+                text: ["--시/군/구--","고창군","군산시","김제시","남원시","무주군","부안군","순창군",
+              "완주군","익산시","임실군","장수군","전주시","정읍시","진안군"],
+                value: ["전라북도","고창군","군산시","김제시","남원시","무주군","부안군","순창군",
+              "완주군","익산시","임실군","장수군","전주시","정읍시","진안군"]
+            },
+            제주특별자치도:{
+                text: ["--시/군/구--","서귀포시","제주시"],
+                value: ["제주특별자치도","서귀포시","제주시"]
+            },
+            충청남도:{
+                text: ["--시/군/구--","계룡시","공주시","금산군","논산시","당진시","보령시","부여군",
+              "서산시","서천군","아산시","예산군","천안시","청양군","태안군","홍성군"],
+                value: ["충청남도","계룡시","공주시","금산군","논산시","당진시","보령시","부여군",
+              "서산시","서천군","아산시","예산군","천안시","청양군","태안군","홍성군"]
+            },
+            충청북도:{
+                text: ["--시/군/구--","괴산군","단양군","보은군","영동군","옥천군","음성군","제천시",
+              "증평군","진천군","청주시","충주시"],
+                value: ["충청북도","괴산군","단양군","보은군","영동군","옥천군","음성군","제천시",
+              "증평군","진천군","청주시","충주시"]
+            }
+
+        }};
+    var Select_List_Data2 = {
+        'choices2': { // name of associated select box
+
+            // names match option values in controlling select box
+
+            강원도: {
+                text: ["--시/군/구--","강릉시","고성군","동해시", "삼척시", "속초시","양구군","영월군",
+             "원주시","인제군","정선군","철원군","춘천시","태백시","평창군","홍천군",
+             "화천군","횡성군"],
+                value: ["강원도", "강릉시","고성군","동해시", "삼척시", "속초시","양구군","영월군",
+             "원주시","인제군","정선군","철원군","춘천시","태백시","평창군","홍천군",
+             "화천군","횡성군"]
+            },
+            경기도: {
+                text: ["--시/군/구--","가평군","고양시","과천시","광명시","광주시","구리시",
+              "군포시","김포시","남양주시","동두천시","부천시","성남시","수원시","시흥시",
+              "안산시","안성시","안양시","양주시","양평군","여주시","연천군","오산시","용인시",
+              "의왕시","의정부시","이천시","파주시","평택시","포천시","하남시","화성시"],
+                value: ["경기도","가평군","고양시","과천시","광명시","광주시","구리시",
+              "군포시","김포시","남양주시","동두천시","부천시","성남시","수원시","시흥시",
+              "안산시","안성시","안양시","양주시","양평군","여주시","연천군","오산시","용인시",
+              "의왕시","의정부시","이천시","파주시","평택시","포천시","하남시","화성시"]
+            },
+            경상남도: {
+                // example without values
+                text: ["--시/군/구--","거제시","거창군","고성군","김해시","남해군","밀양시",
+              "사천시","산청군","양산시","의령군","진주시","창녕군","창원시","통영시",
+              "하동군","함안군","함양군","합천군"],
+                value: ["경상남도","거제시","거창군","고성군","김해시","남해군","밀양시",
+              "사천시","산청군","양산시","의령군","진주시","창녕군","창원시","통영시",
+              "하동군","함안군","함양군","합천군"]
+            },
+            경상북도:{
+                text: ["--시/군/구--","경산시","경주시","고령군","구미시","군위군","김천시","문경시",
+              "봉화군","상주시","성주군","안동시","영덕군","영양군","영주시","영천시","예천군",
+              "울릉군","울진군","의성군","청도군","청송군","칠곡군","포항시"],
+                value: ["경상북도","경산시","경주시","고령군","구미시","군위군","김천시","문경시",
+              "봉화군","상주시","성주군","안동시","영덕군","영양군","영주시","영천시","예천군",
+              "울릉군","울진군","의성군","청도군","청송군","칠곡군","포항시"]
+            },
+            광주광역시:{
+                text: ["--시/군/구--","광산구","남구","동구","북구","서구"],
+                value: ["광주광역시","광산구","남구","동구","북구","서구"]
+            },
+            대구광역시:{
+                text:  ["--시/군/구--","남구","달서구","달성군","동구","북구","서구","수성구","중구"],
+                value: ["대구광역시","남구","달서구","달성군","동구","북구","서구","수성구","중구"]
+            },
+            대전광역시:{
+                text: ["--시/군/구--","대덕구","동구","서구","유성구","중구"],
+                value: ["대전광역시","대덕구","동구","서구","유성구","중구"]
+            },
+            부산광역시:{
+                text: ["--시/군/구--","강서구","금정구","기장군","남구","동구","동래구","부산진구",
+              "북구","사상구","사하구","서구","수영구","연제구","영도구","중구","해운대구"],
+                value: ["부산광역시","강서구","금정구","기장군","남구","동구","동래구","부산진구",
+              "북구","사상구","사하구","서구","수영구","연제구","영도구","중구","해운대구"]
+            },
+            서울특별시:{
+                text: ["--시/군/구--","강남구","강동구","강북구","강서구","관악구","광진구","구로구",
+              "금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구",
+              "성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구",
+              "중랑구"],
+                value: ["서울특별시","강남구","강동구","강북구","강서구","관악구","광진구","구로구",
+              "금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구",
+              "성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구",
+              "중랑구"]
+            },
+            세종특별자치시:{
+                text: ["--시/군/구--","세종특별자치시"],
+                value: ["세종특별자치시", "세종특별자치시"]
+            },
+            울산광역시:{
+                text: ["--시/군/구--","남구","동구","북구","울주군","중구"],
+                value: ["울산광역시","남구","동구","북구","울주군","중구"]
+            },
+            인천광역시:{
+                text: ["--시/군/구--","강화군","계양구","남동구","동구","미추홀구","부평구","서구",
+              "연수구","옹진군","중구"],
+                value: ["인천광역시","강화군","계양구","남동구","동구","미추홀구","부평구","서구",
+              "연수구","옹진군","중구"]
+            },
+            전라남도:{
+                text: ["--시/군/구--","강진군","고흥군","곡성군","광양시","구례군","나주시","담양군",
+              "목포시","무안군","보성군","순천시","신안군","여수시","영광군","영암군","완도군",
+              "장성군","장흥군","진도군","함평군","해남군","화순군"],
+                value: ["전라남도","강진군","고흥군","곡성군","광양시","구례군","나주시","담양군",
+              "목포시","무안군","보성군","순천시","신안군","여수시","영광군","영암군","완도군",
+              "장성군","장흥군","진도군","함평군","해남군","화순군"]
+            },
+            전라북도:{
+                text: ["--시/군/구--","고창군","군산시","김제시","남원시","무주군","부안군","순창군",
+              "완주군","익산시","임실군","장수군","전주시","정읍시","진안군"],
+                value: ["전라북도","고창군","군산시","김제시","남원시","무주군","부안군","순창군",
+              "완주군","익산시","임실군","장수군","전주시","정읍시","진안군"]
+            },
+            제주특별자치도:{
+                text: ["--시/군/구--","서귀포시","제주시"],
+                value: ["제주특별자치도","서귀포시","제주시"]
+            },
+            충청남도:{
+                text: ["--시/군/구--","계룡시","공주시","금산군","논산시","당진시","보령시","부여군",
+              "서산시","서천군","아산시","예산군","천안시","청양군","태안군","홍성군"],
+                value: ["충청남도","계룡시","공주시","금산군","논산시","당진시","보령시","부여군",
+              "서산시","서천군","아산시","예산군","천안시","청양군","태안군","홍성군"]
+            },
+            충청북도:{
+                text: ["--시/군/구--","괴산군","단양군","보은군","영동군","옥천군","음성군","제천시",
+              "증평군","진천군","청주시","충주시"],
+                value: ["충청북도","괴산군","단양군","보은군","영동군","옥천군","음성군","제천시",
+              "증평군","진천군","청주시","충주시"]
+            }
+
+        }
+    };
+
+    </script> {# 시군구 #}
+
+    <script>
+        // anonymous function assigned to onchange event of controlling select box
+    document.forms['register_user_form'].elements['category'].onchange = function(e) {
+        // name of associated select box
+        var relName = 'choices';
+        // reference to associated select box
+        var relList = this.form.elements[ relName ];
+        // get data from object literal based on selection in controlling select box (this.value)
+        var obj = Select_List_Data[ relName ][ this.value ];
+        // remove current option elements
+        removeAllOptions(relList, true);
+        // call function to add optgroup/option elements
+        // pass reference to associated select box and data for new options
+        appendDataToSelect(relList, obj);
+    };
+
+    // populate associated select box as page loads
+    (function() { // immediate function to avoid globals
+        var form = document.forms['register_user_form'];
+        // reference to controlling select box
+        var sel = form.elements['category'];
+        sel.selectedIndex = 0;
+
+        // name of associated select box
+        var relName = 'choices';
+        // reference to associated select box
+        var rel = form.elements[ relName ];
+        // get data for associated select box passing its name
+        // and value of selected in controlling select box
+        var data = Select_List_Data[ relName ][ sel.value ];
+        // add options to associated select box
+        appendDataToSelect(rel, data);
+    }());
+
+
+    </script> {# selectbox1 #}
+    <script>
+    document.forms['register_user_form'].elements['category1'].onchange = function(e) {
+        // name of associated select box
+        var relName = 'choices1';
+        // reference to associated select box
+        var relList = this.form.elements[ relName ];
+        // get data from object literal based on selection in controlling select box (this.value)
+        var obj = Select_List_Data1[ relName ][ this.value ];
+        // remove current option elements
+        removeAllOptions(relList, true);
+        // call function to add optgroup/option elements
+        // pass reference to associated select box and data for new options
+        appendDataToSelect(relList, obj);
+    };
+    (function() { // immediate function to avoid globals
+        var form = document.forms['register_user_form'];
+        // reference to controlling select box
+        var sel = form.elements['category1'];
+        sel.selectedIndex = 0;
+
+        // name of associated select box
+        var relName = 'choices1';
+        // reference to associated select box
+        var rel = form.elements[ relName ];
+        // get data for associated select box passing its name
+        // and value of selected in controlling select box
+        var data = Select_List_Data1[ relName ][ sel.value ];
+        // add options to associated select box
+        appendDataToSelect(rel, data);
+    }());
+    </script> {# selectbox2 #}
+    <script>
+    document.forms['register_user_form'].elements['category2'].onchange = function(e) {
+        // name of associated select box
+        var relName = 'choices2';
+        // reference to associated select box
+        var relList = this.form.elements[ relName ];
+        // get data from object literal based on selection in controlling select box (this.value)
+        var obj = Select_List_Data2[ relName ][ this.value ];
+        // remove current option elements
+        removeAllOptions(relList, true);
+        // call function to add optgroup/option elements
+        // pass reference to associated select box and data for new options
+        appendDataToSelect(relList, obj);
+    };
+    (function() { // immediate function to avoid globals
+        var form = document.forms['register_user_form'];
+        // reference to controlling select box
+        var sel = form.elements['category2'];
+        sel.selectedIndex = 0;
+
+        // name of associated select box
+        var relName = 'choices2';
+        // reference to associated select box
+        var rel = form.elements[ relName ];
+        // get data for associated select box passing its name
+        // and value of selected in controlling select box
+        var data = Select_List_Data2[ relName ][ sel.value ];
+        // add options to associated select box
+        appendDataToSelect(rel, data);
+    }());
+    </script> {# selectbox3 #}
+
+{% endblock scripts %}
+
+
+{% block content -%}
+
+
+    <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+        <div class="page-title">
+            <h1>Register</h1>
+        </div><!-- /.page-title -->
+
+        <form method="post" action="{{ url_for('register_users') }}" name="register_user_form">
+        {{ register_user_form.csrf_token }}
+              <div class="form-group">
+                <label for="login-form-email">E-mail</label>
+                <input type="email" id = "email" class="form-control" name="email">
+                {% if register_user_form.email.errors %}
+                    {% for error in register_user_form.email.errors %}
+                        <span class="error-view">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+{#              value="{{ request.form.email }}"required#}
+            </div><!-- /.form-group -->
+
+{#            <div class="form-group">#}
+{#                <label for="login-form-first-name">First name</label>#}
+{#                <input type="text" class="form-control" name="first_name" id="login-form-first-name">#}
+{#            </div><!-- /.form-group -->#}
+{##}
+{#            <div class="form-group">#}
+{#                <label for="login-form-last-name">Last name</label>#}
+{#                <input type="text" class="form-control" name="last_name" id="login-form-last-name">#}
+{#            </div><!-- /.form-group -->#}
+
+            <div class="form-group">
+                <label for="login-form-password">Password</label>
+                <input type="password" id="password" class="form-control" name="password" id="login-form-password" >
+                {% if register_user_form.password.errors %}
+                    {% for error in register_user_form.password.errors %}
+                        <span class="error-view">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+{#            value="{{ request.form.password }}"required#}
+            </div><!-- /.form-group -->
+
+            <div class="form-group">
+                <label for="login-form-password-retype">Retype password</label>
+                <input type="password" class="form-control" name="password_confirm" id="login-form-password-retype">
+                 {% if register_user_form.password_confirm.errors %}
+                    {% for error in register_user_form.password_confirm.errors %}
+                        <span class="error-view">{{ error }}</span>
+                    {% endfor %}
+                 {% endif %}
+            </div><!-- /.form-group -->
+
+            <div class="sex">
+                <h5>성별</h5>
+                <input type="radio" name="mf" id="male" value="0">
+                <label for="male">남자</label>
+
+                <input type="radio" name="mf" id="female" value="1" >
+                <label for="female">여자</label>
+
+            </div><!-- /.form-group -->
+            <div class="grade">
+                <h5>학년</h5>
+                <input type="radio" name="grade" id="grade1" value="1">
+                <label for="grade1">1학년</label>
+
+                <input type="radio" name="grade" id="grade2" value="2" >
+                <label for="grade2">2학년</label>
+
+                <input type="radio" name="grade" id="grade3" value="3" >
+                <label for="grade3">3학년</label>
+
+                <input type="radio" name="grade" id="grade4" value="4" >
+                <label for="grade4">4학년</label>
+
+                <input type="radio" name="grade" id="grade5" value="5" >
+                <label for="grade5">5학년</label>
+
+                <input type="radio" name="grade" id="grade6" value="6" >
+                <label for="grade6">6학년</label>
+
+            </div><!-- /.form-group -->
+            <div class="searchUniv" id="abcdef">
+                <h5>대학교</h5>
+
+                <button type="button" onclick="window.open( 'search', '_blank', 'width=250px,height=250px,toolbars=no,scrollbars=no'); return true;">대학교 검색</button>
+                <br>
+                <br>
+
+
+                대학교: <input type="text" id="univ" name="university" value= "{{ univer }}" readonly="readonly">
+                <label for="univ"></label>
+                전공: <input type="text" id="major" name="majoring" value= "{{ major }}" readonly="readonly">
+                <label for="major"></label>
+                <br>
+                <br>
+                <button type="button" onclick="autoRefresh_div()" value="값 받아오기">값 받아오기</button>
+
+            </div><!-- /.form-group -->
+            <div>
+                <h5>선호 봉사활동</h5>
+
+                <input type="checkbox" id="volun1" name="volun1">
+                <label for="volun1">생활편의</label>
+
+                <input type="checkbox" id="volun2" name="volun2">
+                <label for="volun2">국제협력</label>
+
+                <input type="checkbox" id="volun3" name="volun3" value="1">
+                <label for="volun3">환경</label>
+
+                <input type="checkbox" id="volun4" name="volun4" value="1">
+                <label for="volun4">인권</label>
+
+                <input type="checkbox" id="volun5" name="volun5" value="1">
+                <label for="volun5">재해/재난</label>
+
+                <input type="checkbox" id="volun6" name="volun6" value="1">
+                <label for="volun6">농어촌</label>
+
+                <input type="checkbox" id="volun7" name="volun7" value="1">
+                <label for="volun7">주거환경</label>
+
+                <input type="checkbox" id="volun8" name="volun8" value="1">
+                <label for="volun8">보건의료</label>
+
+                <input type="checkbox" id="volun9" name="volun9" value="1">
+                <label for="volun9">교육</label>
+
+                <input type="checkbox" id="volun10" name="volun10" value="1">
+                <label for="volun10">행정지원</label>
+
+                <input type="checkbox" id="volun11" name="volun11" value="1">
+                <label for="volun11">상담</label>
+
+                <input type="checkbox" id="volun12" name="volun12" value="1">
+                <label for="volun12">문화</label>
+
+                <input type="checkbox" id="volun13" name="volun13" value="1">
+                <label for="volun13">체육</label>
+
+                <input type="checkbox" id="volun14" name="volun14" value="1">
+                <label for="volun14">역사</label>
+
+                <input type="checkbox" id="volun15" name="volun15" value="1">
+                <label for="volun15">동아리</label>
+
+                <input type="checkbox" id="volun16" name="volun16" value="1">
+                <label for="volun16">여행</label>
+
+                <input type="checkbox" id="volun17" name="volun17" value="1">
+                <label for="volun17">홍보</label>
+
+                <input type="checkbox" id="volun18" name="volun18" value="1">
+                <label for="volun18">사회공헌</label>
+
+                <input type="checkbox" id="volun19" name="volun19" value="1">
+                <label for="volun19">기획</label>
+
+                <input type="checkbox" id="volun20" name="volun20" value="1">
+                <label for="volun20">언어</label>
+
+                <input type="checkbox" id="volun21" name="volun21" value="1">
+                <label for="volun21">현장</label>
+
+                <input type="checkbox" id="volun22" name="volun22" value="1">
+                <label for="volun22">기타</label>
+
+            </div>
+
+                    <div>
+                <h5>선호 대상</h5>
+
+                <input type="checkbox" id="recruit1" name="recruit1">
+                <label for="recruit1">장애인</label>
+
+                <input type="checkbox" id="recruit2" name="recruit2">
+                <label for="recruit2">노인</label>
+
+                <input type="checkbox" id="recruit3" name="recruit3" value="1">
+                <label for="recruit3">외국인</label>
+
+                <input type="checkbox" id="recruit4" name="recruit4" value="1">
+                <label for="recruit4">노숙인</label>
+
+                <input type="checkbox" id="recruit5" name="recruit5" value="1">
+                <label for="recruit5">다문화가정</label>
+
+                <input type="checkbox" id="recruit6" name="recruit6" value="1">
+                <label for="recruit6">노동자</label>
+
+                <input type="checkbox" id="recruit7" name="recruit7" value="1">
+                <label for="recruit7">유아</label>
+
+                <input type="checkbox" id="recruit8" name="recruit8" value="1">
+                <label for="recruit8">여성</label>
+
+                <input type="checkbox" id="recruit9" name="recruit9" value="1">
+                <label for="recruit9">쪽방촌</label>
+
+                <input type="checkbox" id="recruit10" name="recruit10" value="1">
+                <label for="recruit10">청소년</label>
+
+                <input type="checkbox" id="recruit11" name="recruit11" value="1">
+                <label for="recruit11">지역사회</label>
+
+            </div>
+{#            <div class="form-group">#}
+{#                <h5>주소 검색</h5>#}
+{#            우편번호 : <input type="text" name="zip" style="width:80px; height:30px;" />#}
+{#            <button type="button" style="width:60px; height:32px;" onclick="openZipSearch()">검색</button><br>#}
+{#            주소 : <input type="text" name="addr1" style="width:300px; height:30px;" readonly /><br>#}
+{#            상세 : <input type="text" name="addr2" style="width:300px; height:30px;" />#}
+{##}
+{#            </div><!-- /.form-group -->#}
+
+
+            <div class="form-group">
+                <h5>선호 지역 설정 1</h5>
+                <span>
+                    <select  name="category">
+                        <option value="0">--선호지역--</option>
+                        <option value="강원도">강원도</option>
+                        <option value="경기도">경기도</option>
+                        <option value="경상남도">경상남도</option>
+                        <option value="경상북도">경상북도</option>
+                        <option value="광주광역시">광주광역시</option>
+                        <option value="대구광역시">대구광역시</option>
+                        <option value="대전광역시">대전광역시</option>
+                        <option value="부산광역시">부산광역시</option>
+                        <option value="서울특별시">서울특별시</option>
+                        <option value="세종특별자치시">세종특별자치시</option>
+                        <option value="울산광역시">울산광역시</option>
+                        <option value="인천광역시">인천광역시</option>
+                        <option value="전라남도">전라남도</option>
+                        <option value="전라북도">전라북도</option>
+                        <option value="제주특별자치도">제주특별자치도</option>
+                        <option value="충청남도">충청남도</option>
+                        <option value="충청북도">충청북도</option>
+
+                    </select>
+                    <select id="choices" name="choices">
+                    <option>--시/군/구--</option>
+                    </select>
+                </span>
+                <h5>선호 지역 설정 2</h5>
+                <span>
+                    <select  name="category1">
+                       <option value="0">--선호지역--</option>
+                        <option value="강원도">강원도</option>
+                        <option value="경기도">경기도</option>
+                        <option value="경상남도">경상남도</option>
+                        <option value="경상북도">경상북도</option>
+                        <option value="광주광역시">광주광역시</option>
+                        <option value="대구광역시">대구광역시</option>
+                        <option value="대전광역시">대전광역시</option>
+                        <option value="부산광역시">부산광역시</option>
+                        <option value="서울특별시">서울특별시</option>
+                        <option value="세종특별자치시">세종특별자치시</option>
+                        <option value="울산광역시">울산광역시</option>
+                        <option value="인천광역시">인천광역시</option>
+                        <option value="전라남도">전라남도</option>
+                        <option value="전라북도">전라북도</option>
+                        <option value="제주특별자치도">제주특별자치도</option>
+                        <option value="충청남도">충청남도</option>
+                        <option value="충청북도">충청북도</option>
+                    </select>
+                    <select id="choices1" name="choices1">
+                    <option>--시/군/구--</option>
+                    </select>
+                </span>
+                <h5>선호 지역 설정 3</h5>
+                <span>
+                    <select  name="category2">
+                        <option value="0">--선호지역--</option>
+                        <option value="강원도">강원도</option>
+                        <option value="경기도">경기도</option>
+                        <option value="경상남도">경상남도</option>
+                        <option value="경상북도">경상북도</option>
+                        <option value="광주광역시">광주광역시</option>
+                        <option value="대구광역시">대구광역시</option>
+                        <option value="대전광역시">대전광역시</option>
+                        <option value="부산광역시">부산광역시</option>
+                        <option value="서울특별시">서울특별시</option>
+                        <option value="세종특별자치시">세종특별자치시</option>
+                        <option value="울산광역시">울산광역시</option>
+                        <option value="인천광역시">인천광역시</option>
+                        <option value="전라남도">전라남도</option>
+                        <option value="전라북도">전라북도</option>
+                        <option value="제주특별자치도">제주특별자치도</option>
+                        <option value="충청남도">충청남도</option>
+                        <option value="충청북도">충청북도</option>
+                    </select>
+                    <select id="choices2" name="choices2">
+                    <option>--시/군/구--</option>
+                    </select>
+                </span>
+            </div><!-- /.form-group -->
+
+            <button type="submit" class="btn btn-primary pull-right" >Register</button>
+        </form>
+
+    </div><!-- /.col-sm-4 -->
+    </div><!-- /.row -->
+
+
+{% endblock content -%}

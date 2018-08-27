@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html{% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+
+<head>
+{#    @import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);#}
+
+    {%- block head %}
+    <title>봉사왕심봉사 - 내게 맞는 봉사 자동 추천 시스템
+        {% block title %}{{title|default}}{% endblock title %}
+    </title>
+
+    {# edited here  -> for jquery #}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    <style type="text/css">
+        title {
+              font-family: 'Nanum Barun Gothic', sans-serif;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
+    <link href="/static/assets/libraries/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/assets/libraries/owl.carousel/assets/owl.carousel.css" rel="stylesheet" type="text/css" >
+    <link href="/static/assets/libraries/colorbox/example1/colorbox.css" rel="stylesheet" type="text/css" >
+    <link href="/static/assets/libraries/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/assets/libraries/bootstrap-fileinput/fileinput.min.css" rel="stylesheet" type="text/css">
+
+     <link href="/static/assets/css/superlist.css" rel="stylesheet" type="text/css" >
+    <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
+
+{#      <link href={{ url_for('static', filename = "css/superlist.css") }} rel="stylesheet" >#}
+    <link rel="shortcut icon" type="image/x-icon" href="/static/assets/favicon.png">
+
+    {%- block styles %}
+    <!-- Bootstrap -->
+
+
+    {%- endblock styles %}
+
+    {%- endblock head %}
+</head>
+
+
+<body {% block body_attribs %}{% endblock body_attribs %}>
+
+{% block body %}
+<div class="page-wrapper">
+{% include 'header.html' %}
+
+    {% block navbar %}
+    {%- endblock navbar %}
+
+{#    <div class="main">#}
+{% block container %}
+{#        <div class="main-inner">#}
+{##}
+{#            <div class="container">#}
+
+            {% block map %}{% endblock map %}
+
+
+{#                <div class="content">#}
+
+                    {% block content %}
+{#                        <div id="content">#}
+                        {% if current_user.is_authenticated %}
+                            {% include 'index-google-map.html' %}
+                        {% else %}
+                             {% include 'guest_main.html' %}
+                        {% endif %}
+
+                    {% endblock content %}
+
+{#                </div><!-- /.content -->#}
+{#            </div> <!-- /.container -->#}
+{##}
+{#        </div><!-- /.main-inner -->#}
+{% endblock container %}
+{#    </div><!-- /.main -->#}
+
+    {% include 'footer.html' %}
+
+</div><!-- /.page-wrapper -->
+
+<script src="/static/assets/js/jquery.js" type="text/javascript"></script>
+<script src="/static/assets/js/map.js" type="text/javascript"></script>
+
+<script src="/static/assets/libraries/bootstrap-sass/javascripts/bootstrap/collapse.js" type="text/javascript"></script>
+<script src="/static/assets/libraries/bootstrap-sass/javascripts/bootstrap/carousel.js" type="text/javascript"></script>
+<script src="/static/assets/libraries/bootstrap-sass/javascripts/bootstrap/transition.js" type="text/javascript"></script>
+<script src="/static/assets/libraries/bootstrap-sass/javascripts/bootstrap/dropdown.js" type="text/javascript"></script>
+<script src="/static/assets/libraries/bootstrap-sass/javascripts/bootstrap/tooltip.js" type="text/javascript"></script>
+<script src="/static/assets/libraries/bootstrap-sass/javascripts/bootstrap/tab.js" type="text/javascript"></script>
+<script src="/static/assets/libraries/bootstrap-sass/javascripts/bootstrap/alert.js" type="text/javascript"></script>
+
+<script src="/static/assets/libraries/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
+
+<script src="/static/assets/libraries/flot/jquery.flot.min.js" type="text/javascript"></script>
+<script src="/static/assets/libraries/flot/jquery.flot.spline.js" type="text/javascript"></script>
+
+<script src="/static/assets/libraries/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+
+{#<script src="http://maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing" type="text/javascript"></script>#}
+{##}
+{#<script type="text/javascript" src="/static/assets/libraries/jquery-google-map/infobox.js"></script>#}
+{#<script type="text/javascript" src="/static/assets/libraries/jquery-google-map/markerclusterer.js"></script>#}
+{#<script type="text/javascript" src="/static/assets/libraries/jquery-google-map/jquery-google-map.js"></script>#}
+
+<script type="text/javascript" src="/static/assets/libraries/owl.carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="/static/assets/libraries/bootstrap-fileinput/fileinput.min.js"></script>
+
+<script src="/static/assets/js/superlist.js" type="text/javascript"></script>
+
+
+    {% block scripts %}
+    {%- endblock scripts %}
+
+    {%- endblock body %}
+</body>
+{% endblock html %}
+</html>

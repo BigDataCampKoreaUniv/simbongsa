@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="bongsa" uuid="b7ac0207-d99c-4c21-b012-e15e31546418">
+      <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <introspection-schemas>*:main</introspection-schemas>
+    </data-source>
+    <data-source name="bongsa [2]" uuid="aeae6ebf-3ca3-4f05-ad8d-2b288fdd3432">
+      <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <introspection-schemas>*:main</introspection-schemas>
+    </data-source>
+  </component>
+</project>

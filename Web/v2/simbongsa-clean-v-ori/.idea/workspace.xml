@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c160a10b-31f5-43f6-ba46-cb1c7531a70f" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/simbongsa$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1535398186051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/simbongsa$main_list.coverage" NAME="main_list Coverage Results" MODIFIED="1535369874845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/main_list$main_list.coverage" NAME="main_list Coverage Results" MODIFIED="1535270058620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/blog_details_clean_v$main_list.coverage" NAME="main_list Coverage Results" MODIFIED="1535316004458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="bongsa" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="bongsa" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="bongsa" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="bongsa" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="user: table" type="ffe0bd85:SqliteImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="703" column="21" lean-forward="true" selection-start-line="703" selection-start-column="21" selection-end-line="703" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#74#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="495" column="6" selection-start-line="495" selection-start-column="6" selection-end-line="495" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="72" column="59" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="720">
+              <caret line="45" column="75" selection-start-line="45" selection-start-column="75" selection-end-line="45" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user" pinned="false" current-in-tab="false">
+        <entry file="das://b7ac0207-d99c-4c21-b012-e15e31546418/schema/main/table/user">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="volunteer" pinned="false" current-in-tab="false">
+        <entry file="das://b7ac0207-d99c-4c21-b012-e15e31546418/schema/main/table/volunteer">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index-google-map.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/index-google-map.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base_map.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base_map.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="guest_main.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/guest_main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Flask Main" />
+        <option value="CSS File" />
+        <option value="SCSS File" />
+        <option value="JavaScript File" />
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>con</find>
+      <find>user_id</find>
+      <find>current_user</find>
+      <find>max_classification</find>
+      <find>super</find>
+      <find>hidden</find>
+      <find>404</find>
+      <find>maxuser</find>
+      <find>vol_conte</find>
+      <find>print</find>
+      <find>map</find>
+      <find>bootstrap-select</find>
+      <find>db</find>
+      <find>vol_row</find>
+      <find>content</find>
+      <find>User_category</find>
+      <find>recruit_oldman</find>
+      <find>index</find>
+      <find>'index</find>
+      <find>url_for</find>
+      <find>/</find>
+      <find>render</find>
+      <find>login</find>
+      <find>'/'</find>
+      <find>redirect</find>
+      <find>'</find>
+      <find>style</find>
+      <find>user_detail</find>
+      <find>initmap</find>
+      <find>font</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/static/heart2.css" />
+        <option value="$PROJECT_DIR$/static/heart3.css" />
+        <option value="$PROJECT_DIR$/static/heart4.css" />
+        <option value="$PROJECT_DIR$/static/heart.css" />
+        <option value="$PROJECT_DIR$/static/heart_6.css" />
+        <option value="$PROJECT_DIR$/static/heart_js.js" />
+        <option value="$PROJECT_DIR$/static/heart_6_.css" />
+        <option value="$PROJECT_DIR$/static/hearet_7.js" />
+        <option value="$PROJECT_DIR$/static/heart7.scss" />
+        <option value="$PROJECT_DIR$/static/heart_7.js" />
+        <option value="$PROJECT_DIR$/static/heart_7.css" />
+        <option value="$PROJECT_DIR$/static/css/heart_boot.scss" />
+        <option value="$PROJECT_DIR$/static/js/heart_boot.js" />
+        <option value="$PROJECT_DIR$/static/css/heart_7.css" />
+        <option value="$PROJECT_DIR$/static/js/test.js" />
+        <option value="$USER_HOME$/AppData/Local/Temp/_AZTMP1_/templates/user_detail.html" />
+        <option value="$PROJECT_DIR$/templates/blog-detail.html" />
+        <option value="$PROJECT_DIR$/templates/googlemap.html" />
+        <option value="$PROJECT_DIR$/templates/user_detail.py" />
+        <option value="$PROJECT_DIR$/templates/user_detail.html" />
+        <option value="$PROJECT_DIR$/templates/header.html" />
+        <option value="$PROJECT_DIR$/static/assets/js/superlist.js" />
+        <option value="$PROJECT_DIR$/static/assets/css/superlist.css" />
+        <option value="$PROJECT_DIR$/templates/register.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/templates/guest_main.html" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/templates/base_map.html" />
+        <option value="$PROJECT_DIR$/templates/index-google-map.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/static/assets/libraries/colorbox/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="113" />
+    <option name="y" value="6" />
+    <option name="width" value="1650" />
+    <option name="height" value="1005" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="simbongsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simbongsa-clean-v-ori" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simbongsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simbongsa-clean-v-ori" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simbongsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simbongsa-clean-v-ori" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simbongsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simbongsa-clean-v-ori" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simbongsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simbongsa-clean-v-ori" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simbongsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simbongsa-clean-v-ori" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="libraries" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simbongsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simbongsa-clean-v-ori" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="libraries" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap-select" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simbongsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simbongsa-clean-v-ori" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="libraries" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery-google-map" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simbongsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simbongsa-clean-v-ori" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simbongsa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simbongsa-clean-v-ori" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../volunknig08272353" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\PycharmProjects\bigdataPro\blog-details-clean-v\static\img" />
+      <recent name="C:\Users\User\PycharmProjects\bigdataPro\main_list\static\js" />
+      <recent name="C:\Users\User\PycharmProjects\bigdataPro\main_list\static\css" />
+      <recent name="C:\Users\User\PycharmProjects\bigdataPro\main_list\static" />
+      <recent name="C:\Users\User\PycharmProjects\bigdataPro\main_list\assets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\PycharmProjects\v1\simbongsa-clean-v-ori\templates" />
+      <recent name="C:\Users\User\PycharmProjects\bigdataPro\blog-details-clean-v\templates" />
+      <recent name="C:\Users\User\PycharmProjects\bigdataPro\main_list\static" />
+      <recent name="C:\Users\User\PycharmProjects\bigdataPro\main_list\assets" />
+      <recent name="C:\Users\User\PycharmProjects\bigdataPro\main_list" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Flask server.Flask (app.py)">
+    <configuration name="Flask (app.py)" type="Python.FlaskServer" factoryName="Flask server" temporary="true" nameIsGenerated="true">
+      <option name="additionalOptions" value="" />
+      <option name="application" value="" />
+      <option name="flaskDebug" value="true" />
+      <module name="simbongsa" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+    </configuration>
+    <configuration name="main_list" type="Python.FlaskServer" factoryName="Flask server">
+      <option name="additionalOptions" value="" />
+      <option name="application" value="" />
+      <module name="simbongsa" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="C:\Users\User\PycharmProjects\bigdataPro\main_list\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+    </configuration>
+    <list>
+      <item itemvalue="Flask server.main_list" />
+      <item itemvalue="Flask server.Flask (app.py)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flask server.Flask (app.py)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c160a10b-31f5-43f6-ba46-cb1c7531a70f" name="Default" comment="" />
+      <created>1534379640244</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1534379640244</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="113" y="6" width="1650" height="1005" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32996634" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3560268" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.38546923" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.421875" />
+      <window_info anchor="bottom" id="Database Console" order="8" weight="0.32924107" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11872705" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.1364749" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32924107" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.32924107" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11872705" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3560268" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32924107" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.1364749" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.421875" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32996634" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.38546923" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/_AZTMP2_/templates/register.html" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/_AZTMP1_/templates/user_detail.html" />
+    <entry file="file://$PROJECT_DIR$/static/js/heart_js.js" />
+    <entry file="das://fec830f6-1d91-4d81-aea7-5297dd0943b7/schema/main/table/volunteer" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/_AZTMP0_/app.py" />
+    <entry file="file://$PROJECT_DIR$/static/css/heart_7.css" />
+    <entry file="file://$PROJECT_DIR$/templates/base_ori.html" />
+    <entry file="file://$PROJECT_DIR$/templates/footer.html" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/_AZTMP6_/app.py" />
+    <entry file="file://$PROJECT_DIR$/get_coordinates.py" />
+    <entry file="das://fec830f6-1d91-4d81-aea7-5297dd0943b7/schema/main/table/likes" />
+    <entry file="file://$PROJECT_DIR$/templates/search.html" />
+    <entry file="file://$PROJECT_DIR$/../main_list/venv/Lib/site-packages/sqlalchemy/engine/base.py" />
+    <entry file="das://fec830f6-1d91-4d81-aea7-5297dd0943b7/schema/main/table/user" />
+    <entry file="file://$PROJECT_DIR$/static/assets/libraries/jquery-google-map/jquery-google-map.js" />
+    <entry file="file://$PROJECT_DIR$/static/assets/js/map.js" />
+    <entry file="das://b9c9db47-fe9b-4844-97e6-cde6f836000c/schema/main/table/user" />
+    <entry file="file://$PROJECT_DIR$/../../volunknig0826/templates/googlemap.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../volunknig0826/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="179" column="34" selection-start-line="179" selection-start-column="34" selection-end-line="179" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/빅데이터프로젝트/5조_template/superlist-1.0.3/superlist/index-google-map.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="181" selection-start-line="181" selection-end-line="181" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/user_detail.html" />
+    <entry file="file://$PROJECT_DIR$/../../volunknig0826/templates/user_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9d9256e5-2094-49b1-8d6c-09023dbf9f38/schema/main/table/volunteer" />
+    <entry file="das://9d9256e5-2094-49b1-8d6c-09023dbf9f38/schema/main/table/user_category" />
+    <entry file="das://9d9256e5-2094-49b1-8d6c-09023dbf9f38/schema/main/table/user" />
+    <entry file="das://9d9256e5-2094-49b1-8d6c-09023dbf9f38/schema/main/table/likes" />
+    <entry file="file://$PROJECT_DIR$/templates/listing-row.html" />
+    <entry file="file://$PROJECT_DIR$/../main_list/venv/Lib/site-packages/flask/app.py" />
+    <entry file="file://$PROJECT_DIR$/templates/googlemap.html" />
+    <entry file="das://d0a1781b-e1aa-4bea-a3fa-364a89649df3/schema/main/table/likes">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e4a98431-9d4f-4fa3-afc3-9ebada575101/schema/main/table/user_category">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e4a98431-9d4f-4fa3-afc3-9ebada575101/schema/main/table/likes">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e4a98431-9d4f-4fa3-afc3-9ebada575101/schema/main/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/js/superlist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="116" column="13" selection-start-line="116" selection-start-column="13" selection-end-line="116" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/css/superlist.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="10579" column="18" selection-start-line="10579" selection-start-column="18" selection-end-line="10579" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/libraries/bootstrap-select/bootstrap-select.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="6" column="10460" selection-start-line="6" selection-start-column="10460" selection-end-line="6" selection-end-column="10460" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://f4aed054-4ad0-4b1b-95aa-8eed26e01b33/schema/main/table/likes">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a2f0036f-48b0-409f-9f6a-9cc425927858/schema/main/table/likes">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://a2f0036f-48b0-409f-9f6a-9cc425927858/schema/main/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/blog-detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="133" column="34" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index-google-map2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="184" column="60" selection-start-line="184" selection-start-column="60" selection-end-line="184" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="495" column="6" selection-start-line="495" selection-start-column="6" selection-end-line="495" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="45" column="75" selection-start-line="45" selection-start-column="75" selection-end-line="45" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b7ac0207-d99c-4c21-b012-e15e31546418/schema/main/table/volunteer">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="72" column="59" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base_map.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b7ac0207-d99c-4c21-b012-e15e31546418/schema/main/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index-google-map.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/guest_main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="703" column="21" lean-forward="true" selection-start-line="703" selection-start-column="21" selection-end-line="703" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
