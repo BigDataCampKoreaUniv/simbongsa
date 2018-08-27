@@ -50,8 +50,11 @@
     {%- endblock navbar %}
 
     <div class="main">
+{% block container %}
         <div class="main-inner">
+
             <div class="container">
+
                 <div class="content">
 
                     {% block content %}
@@ -65,7 +68,9 @@
                 </div><!-- /.content -->
 
             </div> <!-- /.container -->
+
         </div><!-- /.main-inner -->
+{% endblock container %}
     </div><!-- /.main -->
 
     {% include 'footer.html' %}

@@ -503,6 +503,33 @@ def register_users():
 
 
 
+def major_recommend(user_id):
+    conn = sqlite3.connect('bongsa.db')
+    cur = conn.cursor()
+
+    vol_list=[]
+    vol_content=[]
+    cur.execute("select majoring from user where id="+str(user_id))
+    vol_row = cur.fetchone()
+
+    conn.close()
+    print(vol_row)
+
+    # for i in range(len(vol_row)):
+    #     row_list = list(vol_row[i][8:30])
+    #     row_content = list(vol_row[i][1:8])
+    #     vol_list.append(row_list)
+    #     vol_content.append(row_content)
+
+    #
+    #   유저 카테고리 매트릭스 만들기
+    #
+    # cur.execute("select * from user_category")  # content_id에 해당하는 컨텐츠 가져오기
+    # user_row = cur.fetchall()
+
+
+
+
 @app.route('/')
 def main_guest():
     return render_template('guest_main.html')
@@ -519,7 +546,7 @@ def user_detail():
     else:
         user_id = int(user_id)  #str->int
 
-
+    major_recommend(user_id)
     get_add = GeoCoordinates('서울 중구 덕수궁길 15')
 #    print(get_add['result']['items'][0]['point']['x'], get_add['result']['items'][0]['point']['y'])
 
