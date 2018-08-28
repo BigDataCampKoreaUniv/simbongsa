@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <script>
+        // 이미 좋아요가 눌러진 상태라면 색깔있는 하트로 처음화면에 바꿔줌
+        $(document).ready(function () {
+            var datas = {{ check_flag|tojson }};
+            for (var j = 0; j < datas.length; j++) {
+                if (datas[j] == 'true') {
+                    $('#id-of-a-heart-' + String(j)).removeClass('fa-heart-o').addClass('fa-heart');
+                    $('#id-of-a-heart-' + String(j)).css('color', 'red');
+                }
+            }
+        });
+
+        // 좋아요 버튼을 눌렀을 때 이벤트 핸들러
+        function set_checked(n, contents_id) {
+            // 이미 좋아요 된 게시글이 클릭된 경우 : 좋아요 해제모양 + db에서 빼기
+            if ($('#id-of-a-heart-' + String(n)).hasClass('fa-heart')) {  // already clicked before
+                $('#id-of-a-heart-' + String(n)).removeClass('fa-heart').addClass('fa-heart-o');
+                $('#id-of-a-heart-' + String(n)).css('color', '');
+
+                $.ajax({
+                    url: '/likes_update',
+                    type: "POST",
+
+                    data: {like_checked: false, content_id: contents_id},
+                    success: function (response) {
+                        var obj = JSON.parse(response);
+
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+
+            } else {      // 좋아가 아닌 게시글이 클릭된 경우 : 좋아요 모양 + db에 넣기
+                $('#id-of-a-heart-' + String(n)).removeClass('fa-heart-o').addClass('fa-heart');
+                $('#id-of-a-heart-' + String(n)).css('color', 'red');
+
+
+                $.ajax({
+                    url: '/likes_update',
+                    type: "POST",
+
+                    data: {like_checked: true, content_id: contents_id},
+                    success: function (response) {
+                        var obj = JSON.parse(response);
+
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+
+            }
+        }
+    </script>
+
+
+    <div align="center"><h2> 심봉사가 생각하는 당신에게 맞는 봉사입니다. </h2></div>
+    {% for i in range(0,12) %}
+        <div class="col-sm-6 col-md-3">
+            <div class="card-simple">
+                <div class="card-simple-background">
+                    <div class="card-simple-content">
+                        {#                    console.log({{ similarity[i][0] }})#}
+                        <h2><a href="/contents/{{ similarity[i][0] }}">{{ vol_content[similarity[i][0]][1] }}</a></h2>
+                        <div class="card-simple-rating">
+                            {% for s in range(star_rate[i][0]) %}
+                                <i class="fa fa-star"></i>
+                            {% endfor %}
+                            {% for s_o in range(star_rate[i][1]) %}
+                                <i class="fa fa-star-o"></i>
+                            {% endfor %}
+                        </div><!-- /.card-rating -->
+
+                        {#                 좋아요 처리 필요! #}
+                        <div class="card-simple-actions">
+
+                            {# also edit here to similar content's id #}
+                            <a href="/contents/{{ similarity[i][0] }}" class="fa fa-search"></a>
+                            <a href="javascript:set_checked( {{ i }}  , {{ similarity[i][0] }});"
+                               class="fa fa-heart-o" id="id-of-a-heart-{{ i }}"></a>
+                        </div><!-- /.card-simple-actions -->
+                    </div><!-- /.card-simple-content -->
+
+                    <div class="card-simple-label">{{ category_name[i] }}</div>
+
+                </div><!-- /.card-simple-background -->
+            </div><!-- /.card-simple -->
+        </div><!-- /.col-* -->
+    {% endfor %}
+{% endblock content %}

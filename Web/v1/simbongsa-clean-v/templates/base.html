@@ -3,6 +3,8 @@
 {%- block html %}
 
 <head>
+{#    @import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);#}
+
     {%- block head %}
     <title>봉사왕심봉사 - 내게 맞는 봉사 자동 추천 시스템
         {% block title %}{{title|default}}{% endblock title %}
@@ -10,6 +12,12 @@
 
     {# edited here  -> for jquery #}
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    <style type="text/css">
+        title {
+              font-family: 'Nanum Barun Gothic', sans-serif;
+        }
+    </style>
 
 
     <meta charset="UTF-8">
@@ -26,9 +34,11 @@
     <link href="/static/assets/libraries/bootstrap-fileinput/fileinput.min.css" rel="stylesheet" type="text/css">
 
      <link href="/static/assets/css/superlist.css" rel="stylesheet" type="text/css" >
+    <link href='https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
 
 {#      <link href={{ url_for('static', filename = "css/superlist.css") }} rel="stylesheet" >#}
-    <link rel="shortcut icon" type="image/x-icon" href="/static/assets/favicon.png">
+            <link rel="shortcut icon" type="image/x-icon" href="/static/img/logo3.png">
+{#    <link rel="shortcut icon" type="image/x-icon" href="/static/assets/favicon.png">#}
 
     {%- block styles %}
     <!-- Bootstrap -->
@@ -53,7 +63,9 @@
 {% block container %}
         <div class="main-inner">
 
+           {% block aboutus %}
             <div class="container">
+
 
                 <div class="content">
 
@@ -61,13 +73,14 @@
                         {% if current_user.is_authenticated %}
                             {% include 'index-google-map.html' %}
                         {% else %}
-
+                            {% include 'guest_main.html' %}
                         {% endif %}
                     {% endblock content %}
 
                 </div><!-- /.content -->
 
             </div> <!-- /.container -->
+             {% endblock aboutus %}
 
         </div><!-- /.main-inner -->
 {% endblock container %}

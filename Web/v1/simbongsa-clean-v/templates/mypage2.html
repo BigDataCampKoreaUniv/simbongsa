@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{#<div class="content">#}
+<div class="page-wrapper">
+
+
+
+    <div class="main">
+        <div class="outer-admin">
+            <div class="wrapper-admin">
+                <div class="sidebar-admin">
+                    <ul>
+                        <li class="active"><a href="#"><i class="fa fa-file"></i></a></li>
+{#                        <li><a href="#"><i class="fa fa-pencil"></i></a></li>#}
+{#                        <li><a href="#"><i class="fa fa-flag-o"></i></a></li>#}
+{#                        <li><a href="#"><i class="fa fa-folder-o"></i></a></li>#}
+{#                        <li><a href="#"><i class="fa fa-bar-chart"></i></a></li>#}
+{#                        <li><a href="#"><i class="fa fa-cog"></i></a></li>#}
+                    </ul>
+                </div><!-- /.sidebar-admin-->
+
+                <div class="sidebar-secondary-admin">
+                    <ul>
+{#                        <li >#}
+{#                            <a href="admin-dashboard.html">#}
+{#                                <span class="icon"><i class="fa fa-tachometer"></i></span>#}
+{#                                <span class="title">Dashboard</span>#}
+{#                                <span class="subtitle">Manage your website</span>#}
+{#                            </a>#}
+{#                        </li>#}
+{##}
+{#                        <li >#}
+{#                            <a href="admin-forms.html">#}
+{#                                <span class="icon"><i class="fa fa-i-cursor"></i></span>#}
+{#                                <span class="title">Forms <span class="notification">3</span> </span>#}
+{#                                <span class="subtitle">View form styles</span>#}
+{#                            </a>#}
+{#                        </li>#}
+
+                        <li class="active">
+                            <a href="admin-tables.html">
+                                <span class="icon"><i class="fa fa-table"></i></span>
+                                <span class="title">My Page</span>
+                                <span class="subtitle">나의 상세 페이지!</span>
+                            </a>
+                        </li>
+
+{#                        <li >#}
+{#                            <a href="admin-grid.html">#}
+{#                                <span class="icon"><i class="fa fa-th"></i></span>#}
+{#                                <span class="title">Grid <span class="notification">2</span></span>#}
+{#                                <span class="subtitle">Bootstrap Grid</span>#}
+{#                            </a>#}
+{#                        </li>#}
+{##}
+{#                        <li >#}
+{#                            <a href="admin-notifications.html">#}
+{#                                <span class="icon"><i class="fa fa-bell"></i></span>#}
+{#                                <span class="title">Notifications</span>#}
+{#                                <span class="subtitle">Alert messages</span>#}
+{#                            </a>#}
+{#                        </li>#}
+                    </ul>
+                </div><!-- /.sidebar-secondary-admin -->
+
+                <div class="content-admin">
+                    <div class="content-admin-wrapper">
+                        <div class="content-admin-main">
+                            <div class="content-admin-main-inner">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+    <div class="page-title">
+        <h1>My Page</h1>
+    </div><!-- /.page-title -->
+
+    <div class="background-white p20 mb50">
+        <h2 class="page-title">좋아요 누른 목록</h2>
+
+        <table class="table mb0">
+{#            <caption>Optional table caption.</caption>#}
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Content Page</th>
+{#                    <th>Username</th>#}
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for i in contentlike %}
+                <tr>
+                    <th scope="row">{{ i[2] }}</th>
+                    <td>{{ i[1] }}</td>
+                    <td><a href="/contents/{{ i[0]  }}">{{ i[0] }}</a></td>
+{#                    <td>@mdo</td>#}
+                </tr>
+                {% endfor %}
+{#                <tr>#}
+{#                    <th scope="row">2</th>#}
+{#                    <td>Jacob</td>#}
+{#                    <td>Thornton</td>#}
+{#                    <td>@fat</td>#}
+{#                </tr>#}
+{##}
+{#                <tr>#}
+{#                    <th scope="row">3</th>#}
+{#                    <td>Larry</td>#}
+{#                    <td>the Bird</td>#}
+{#                    <td>@twitter</td>#}
+{#                </tr>#}
+            </tbody>
+        </table>
+    </div>
+
+{#    <div class="background-white p20 mb50">#}
+{#        <h2 class="page-title">Striped rows</h2>#}
+{##}
+{#        <table class="table table-striped mb0">#}
+{#            <thead>#}
+{#                <tr>#}
+{#                    <th>#</th>#}
+{#                    <th>First Name</th>#}
+{#                    <th>Last Name</th>#}
+{#                    <th>Username</th>#}
+{#                </tr>#}
+{#            </thead>#}
+{##}
+{#            <tbody>#}
+{#                <tr>#}
+{#                    <th scope="row">1</th>#}
+{#                    <td>Mark</td>#}
+{#                    <td>Otto</td>#}
+{#                    <td>@mdo</td>#}
+{#                </tr>#}
+{##}
+{#                <tr>#}
+{#                    <th scope="row">2</th>#}
+{#                    <td>Jacob</td>#}
+{#                    <td>Thornton</td>#}
+{#                    <td>@fat</td>#}
+{#                </tr>#}
+{##}
+{#                <tr>#}
+{#                    <th scope="row">3</th>#}
+{#                    <td>Larry</td>#}
+{#                    <td>the Bird</td>#}
+{#                    <td>@twitter</td>#}
+{#                </tr>#}
+{#            </tbody>#}
+{#        </table>#}
+{#    </div>#}
+{##}
+{#    <div class="background-white p20 mb50">#}
+{#        <h2 class="page-title">Hovered Example</h2>#}
+{##}
+{#        <table class="table table-hover mb0">#}
+{#            <caption>Optional table caption.</caption>#}
+{#            <thead>#}
+{#            <tr>#}
+{#                <th>#</th>#}
+{#                <th>First Name</th>#}
+{#                <th>Last Name</th>#}
+{#                <th>Username</th>#}
+{#            </tr>#}
+{#            </thead>#}
+{##}
+{#            <tbody>#}
+{#            <tr>#}
+{#                <th scope="row">1</th>#}
+{#                <td>Mark</td>#}
+{#                <td>Otto</td>#}
+{#                <td>@mdo</td>#}
+{#            </tr>#}
+{##}
+{#            <tr>#}
+{#                <th scope="row">2</th>#}
+{#                <td>Jacob</td>#}
+{#                <td>Thornton</td>#}
+{#                <td>@fat</td>#}
+{#            </tr>#}
+{##}
+{#            <tr>#}
+{#                <th scope="row">3</th>#}
+{#                <td>Larry</td>#}
+{#                <td>the Bird</td>#}
+{#                <td>@twitter</td>#}
+{#            </tr>#}
+{#            </tbody>#}
+{#        </table>#}
+{#    </div>#}
+{##}
+{#    <div class="background-white p20">#}
+{#        <h2 class="page-title">Bordered table</h2>#}
+{##}
+{#        <table class="table table-bordered mb0">#}
+{#            <thead>#}
+{#                <tr>#}
+{#                    <th>#</th>#}
+{#                    <th>First Name</th>#}
+{#                    <th>Last Name</th>#}
+{#                    <th>Username</th>#}
+{#                </tr>#}
+{#            </thead>#}
+{##}
+{#            <tbody>#}
+{#                <tr>#}
+{#                    <th scope="row">1</th>#}
+{#                    <td>Mark</td>#}
+{#                    <td>Otto</td>#}
+{#                    <td>@mdo</td>#}
+{#                </tr>#}
+{##}
+{#                <tr>#}
+{#                    <th scope="row">2</th>#}
+{#                    <td>Jacob</td>#}
+{#                    <td>Thornton</td>#}
+{#                    <td>@fat</td>#}
+{#                </tr>#}
+{##}
+{#                <tr>#}
+{#                    <th scope="row">3</th>#}
+{#                    <td>Larry</td>#}
+{#                    <td>the Bird</td>#}
+{#                    <td>@twitter</td>#}
+{#                </tr>#}
+{#            </tbody>#}
+{#        </table>#}
+{#    </div>#}
+</div>
+
+                                    </div>
+                                </div><!-- /.container-fluid -->
+                            </div><!-- /.content-admin-main-inner -->
+                        </div><!-- /.content-admin-main -->
+
+{#                        <div class="content-admin-footer">#}
+{#                            <div class="container-fluid">#}
+{#                                <div class="content-admin-footer-inner">#}
+{#                                    &copy; 2015 All rights reserved. Created by <a href="#">Aviators</a>.#}
+{#                                </div><!-- /.content-admin-footer-inner -->#}
+{#                            </div><!-- /.container-fluid -->#}
+{#                        </div><!-- /.content-admin-footer  -->#}
+                    </div><!-- /.content-admin-wrapper -->
+                </div><!-- /.content-admin -->
+            </div><!-- /.wrapper-admin -->
+        </div><!-- /.outer-admin -->
+    </div><!-- /.main -->
+</div><!-- /.page-wrapper -->
+
+
+{#</div><!-- /.content -->#}
+{%  endblock content %}
